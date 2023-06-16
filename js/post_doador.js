@@ -26,14 +26,14 @@ async function createDoador(doador) {
   }
 }
 
-async function createDoacao(doacoes) {
+async function createDoacao(doacao) {
   const url = 'https://tomorrows-water.onrender.com/v1/tomorrows-water/doacao';
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(doacoes)
+    body: JSON.stringify(doacao)
   };
 
   try {
@@ -167,14 +167,14 @@ button.addEventListener('click', async (e) => {
     const doadorId = await createDoador(doador);
 
     if (doadorId) {
-      const doacoes = {
+      const doacao = {
         "id": '',
         "id_doador": doadorId,
         "tipo_doacao": selectValueTipo,
         "valor": selectValue
       };
 
-      await createDoacao(doacoes);
+      await createDoacao(doacao);
       console.log('Dados da doação enviados com sucesso.');
 
       showSuccessMessage(); // Exibir mensagem de sucesso após a conclusão do envio
